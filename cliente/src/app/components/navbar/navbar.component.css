@@ -1,0 +1,26 @@
+.bigIcon{
+    font-size: 2em; /* para aumentar el tamaño */
+}
+.datepicker-table-wrapper{
+  color: black;
+}
+
+.myProfileContainer {
+  width: 40px; /* ajusta este valor al tamaño deseado */
+  height: 40px; /* ajusta este valor al tamaño deseado */
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myProfileContainer {
+  margin-top: 10px; /* ajusta este valor al espacio deseado */
+  margin-bottom: 10px; /* ajusta este valor al espacio deseado */
+  /* las demás reglas CSS */
+}
+
+.myProfileContainer img.myProfile {
+  max-width: 100%;
+  max-height: 100%;
+}

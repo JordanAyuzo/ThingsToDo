@@ -1,0 +1,1644 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.2.6",
+        "title": "REST API proyecto agenda Escolar",
+        "description": "<html><body>A continuacion se presenta la documentacion de la API de un sistema para una agenda Escolar</body></html>",
+        "license": {
+            "name": "Jordan Ayuzo Pacheco",
+            "url": "https://github.com/JordanAyuzo/"
+        }
+    },
+    "host": "localhost:3000",
+    "base Path": "",
+    "tags": [
+        {
+            "name": "Cliente",
+            "description": "API para obtener la informacion de los clientes de la agenda."
+        },
+        {
+            "name": "Tareas",
+            "description": "API para obtener información de las tareas de los clientes."
+        },
+        {
+            "name": "Objetivos",
+            "description": "API para obtener información de los objetivos de los clientes"
+        },
+        {
+            "name": "Clases",
+            "description": "API para obtener las Clases de los clientes de la agenda."
+        },
+        {
+            "name": "Notas",
+            "description": "API que recibe servicios sobre las notas de cada cliente."
+        },
+        {
+            "name": "Relacion Clase-Dia",
+            "description": "API para obtener información de las tareas de los clientes."
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/api/cliente/create/": {
+            "post": {
+                "summary": "Crea un cliente para el sistema .",
+                "description": "<p>Servicio que ingresa un usuario  al sistema </p><p>&nbsp;</p><p><em><strong>¿Qué usuario se agrega?</strong></em></p>",
+                "operationId": "create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Cliente"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La operación se realizó con Exito",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun error en la Accion"
+                    }
+                }
+            }
+        },
+        "/api/objetivo/create": {
+            "post": {
+                "summary": "Crea un Objetivo para el sistema .",
+                "description": "<p>Servicio que ingresa un objetivo al sistema </p><p>&nbsp;</p><p><em><strong>¿Qué objetivo se agrega?</strong></em></p>",
+                "operationId": "create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  Objetivo",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ObjetivoC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Objetivos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La operación se realizó con Exito",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ObjetivoC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun error en la Accion"
+                    }
+                }
+            }
+        },
+        "/api/tarea/create": {
+            "post": {
+                "summary": "Crea un tarea para el sistema .",
+                "description": "<p>Servicio que ingresa un  tarea al sistema </p><p>&nbsp;</p><p><em><strong>¿Qué  tarea se agrega?</strong></em></p>",
+                "operationId": "create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del tarea",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TareaC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Tareas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La operación se realizó con Exito",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/TareaC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun error en la Accion"
+                    }
+                }
+            }
+        },
+        "/api/clases/create": {
+            "post": {
+                "summary": "Crea un clase para el sistema .",
+                "description": "<p>Servicio que ingresa una clase al sistema </p><p>&nbsp;</p><p><em><strong>¿Qué  clase se agrega?</strong></em></p>",
+                "operationId": "create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del clase",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClasesC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Clases"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La operación se realizó con Exito",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClasesC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun error en la Accion"
+                    }
+                }
+            }
+        },
+        "/api/dia/create": {
+            "post": {
+                "summary": "asigna un dia para la clase .",
+                "description": "<p>Servicio que asigna el dia que tendrá la clase </p><p>&nbsp;</p><p><em><strong>¿Qué  clase se asigna?</strong></em></p>",
+                "operationId": "create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos de la asignacion",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClasesDia"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Relacion Clase-Dia"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La operación se realizó con Exito",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClasesDia"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun error en la Accion"
+                    }
+                }
+            }
+        },
+        "/api/notes/create": {
+            "post": {
+                "summary": "Crea una nota para el cliente.",
+                "description": "<p>Servicio que ayuda a manipular las notas de los usuarios</p><p>&nbsp;</p><p><em><strong>¿Qué datos agrega?</strong></em></p>",
+                "operationId": "create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los Datos:",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/notes"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Notas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La operación se realizó con Exito",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/notes"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun error en la Accion"
+                    }
+                }
+            }
+        },
+        "/api/cliente/listOne": {
+            "post": {
+                "tags": [
+                    "Cliente"
+                ],
+                "summary": "Lista un cliente especificado de la base de datos.",
+                "description": "<p>Servicio el cual devuelve el cliente que esta en la agenda.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los clientes?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/listOneId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La consulta se hizo Correctamente",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_cliente": 1,
+                                    "nombre": "Ramon V",
+                                    "pasword": "12345B"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun Error Al momento de La Consulta",
+                        "tags": [
+                            "Cliente"
+                        ]
+                    }
+                }
+            }
+        },
+        "/api/cliente/login": {
+            "post": {
+                "tags": [
+                    "Cliente"
+                ],
+                "summary": "Valida al cliente con los datos proporcionados.",
+                "description": "<p>Servicio el cual devuelve el cliente que puede ingresar a su agenda.</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los clientes?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteLogin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La consulta se hizo Correctamente",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_cliente": 1,
+                                    "nombre": "Ramon V",
+                                    "pasword": "12345B"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun Error Al momento de La Consulta",
+                        "tags": [
+                            "Cliente"
+                        ]
+                    }
+                }
+            }
+        },
+        "/api/cliente/find": {
+            "post": {
+                "tags": [
+                    "Cliente"
+                ],
+                "summary": "Valida si existe un nombre existente.",
+                "description": "<p>Servicio que valida si el nombre ya existe en la base de datos .</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los clientes?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteName"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La consulta se hizo Correctamente",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_cliente": 1,
+                                    "nombre": "Ramon V",
+                                    "pasword": "12345B"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun Error Al momento de La Consulta",
+                        "tags": [
+                            "Cliente"
+                        ]
+                    }
+                }
+            }
+        },
+        "/api/cliente/recover": {
+            "post": {
+                "tags": [
+                    "Cliente"
+                ],
+                "summary": "recupera Informacion",
+                "description": "<p>Servicio que recupera informacion del cliente con su nombre y palabra de recuperacion .</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los clientes?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteRecover"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La consulta se hizo Correctamente",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_cliente": 1,
+                                    "nombre": "Ramon V",
+                                    "pasword": "12345B"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun Error Al momento de La Consulta",
+                        "tags": [
+                            "Cliente"
+                        ]
+                    }
+                }
+            }
+        },
+        "/api/tarea/list": {
+            "post": {
+                "tags": [
+                    "Tareas"
+                ],
+                "summary": "Muestra la información de la tarea dado su id del cliente.",
+                "description": "<p>Servicio que devuelve la información detallada de la tarea de todos los clientes que pertenecen al sistema </p><p>&nbsp;</p><p><em><strong>¿Cuáles son las tareas?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/listClient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_tarea": 5,
+                                    "id_cliente": 2,
+                                    "nombre": "tarea2",
+                                    "descripcion": "tar2",
+                                    "fecha_fin": "15-12-22"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Tarea"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                }
+            }
+        },
+        "/api/tarea/listOne": {
+            "post": {
+                "tags": [
+                    "Tareas"
+                ],
+                "summary": "Muestra la información de la tarea dado su id del cliente y la tarea que seleccionas.",
+                "description": "<p>Servicio que devuelve la información detallada de la tarea especifica</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las tareas?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/listOneClient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_tarea": 5,
+                                    "id_cliente": 2,
+                                    "nombre": "tarea2",
+                                    "descripcion": "tar2",
+                                    "fecha_fin": "15-12-22"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Tarea"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                }
+            }
+        },
+        "/api/objetivo/list": {
+            "post": {
+                "tags": [
+                    "Objetivos"
+                ],
+                "summary": "Muestra la información del Objetivo dado su id del cliente.",
+                "description": "<p>Servicio que devuelve la información detallada de la tarea de todos los clientes que pertenecen al sistema </p><p>&nbsp;</p><p><em><strong>¿Cuáles son los objetivos?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/listClient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_objetivo": 2,
+                                    "id_cliente": 2,
+                                    "nombre": "Objetvo 1",
+                                    "fecha_fin": "02-12-22",
+                                    "prioridad": 1,
+                                    "progreso": 7
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Objetivo"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                }
+            }
+        },
+        "/api/objetivo/listOne": {
+            "post": {
+                "tags": [
+                    "Objetivos"
+                ],
+                "summary": "Muestra la información del Objetivo dado su id del cliente y del objetivo.",
+                "description": "<p>Servicio que devuelve la información detallada del objetivo especifico </p><p>&nbsp;</p><p><em><strong>¿Cuáles son los objetivos?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/listOneObj"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_objetivo": 2,
+                                    "id_cliente": 2,
+                                    "nombre": "Objetvo 1",
+                                    "fecha_fin": "02-12-22",
+                                    "prioridad": 1,
+                                    "progreso": 7
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Objetivo"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                }
+            }
+        },
+        "/api/clases/listOne/{id_cliente}": {
+            "get": {
+                "tags": [
+                    "Clases"
+                ],
+                "summary": "Muestra la información de las Clases dado su id del cliente.",
+                "description": "<p>Servicio que devuelve la información detallada de las clases de todos los clientes que pertenecen al sistema </p><p>&nbsp;</p><p><em><strong>¿Cuáles son las Clases?</strong></em></p>",
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_clase": 9,
+                                    "nombre": "matematicas",
+                                    "id_cliente": 2
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Clases"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id_cliente",
+                        "in": "path",
+                        "required": true,
+                        "description": "Requiere el Id del cliente",
+                        "type": "string",
+                        "default": "1"
+                    }
+                ]
+            }
+        },
+        "/api/clases/lookName/": {
+            "post": {
+                "tags": [
+                    "Clases"
+                ],
+                "summary": "Muestra la información de la clase segun su nombre.",
+                "description": "<p>Muestra todos los atributos de la clase con el nombre de esta misma es decir busca por nombre</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las Clases?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  cliente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/look"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_clase": 9,
+                                    "nombre": "matematicas",
+                                    "id_cliente": 2
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Clases"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                }
+            }
+        },
+        "/api/dia/lookName/": {
+            "post": {
+                "tags": [
+                    "Relacion Clase-Dia"
+                ],
+                "summary": "Muestra la información del dia segun su nombre.",
+                "description": "<p>Muestra todos los atributos del dia con el nombre de esta misma es decir busca por nombre</p><p>&nbsp;</p><p><em><strong>¿Cuáles son las Clases?</strong></em></p>",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del dia",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/look"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id_clase": 9,
+                                    "nombre": "matematicas",
+                                    "id_cliente": 2
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Clases"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                }
+            }
+        },
+        "/api/notes/list/{id_cliente}": {
+            "get": {
+                "tags": [
+                    "Notas"
+                ],
+                "summary": "Busca la nota del vliente",
+                "description": "<p>busca la tarea del cliente</p><p>&nbsp;</p><p><em><strong>¿que busca?</strong></em></p>",
+                "responses": {
+                    "200": {
+                        "description": "La Consulta Se Obtuvo de manera satisfactoria",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 9,
+                                    "id_cliente": 2,
+                                    "nota": "aqui va la nota"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/notes"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo un error Al momento de hacer la consulta"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id_cliente",
+                        "in": "path",
+                        "required": true,
+                        "description": "Requiere el Id del cliente",
+                        "type": "string",
+                        "default": "1"
+                    }
+                ]
+            }
+        },
+        "/api/cliente/update/{id}": {
+            "put": {
+                "summary": "Modifica los datos de un Cliente",
+                "description": "<p>Servicio que modifica los datos del Cliente</p><p>&nbsp;</p><p><em><strong>¿Cuál es el Cliente?</strong></em></p>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id del Cliente",
+                        "required": true,
+                        "default": 1
+                    },
+                    {
+                        "name": "Cliente",
+                        "in": "body",
+                        "description": "Ingrese la informacion Correspondiente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClienteC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Cliente"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Accion se realizó Correctamente.",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClienteC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun erroren la accion."
+                    }
+                }
+            }
+        },
+        "/api/tarea/update/{id}": {
+            "put": {
+                "summary": "Modifica los datos de un tarea",
+                "description": "<p>Servicio que modifica los datos de la tarea</p><p>&nbsp;</p><p><em><strong>¿Cuál es la tarea?</strong></em></p>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id de la tarea",
+                        "required": true,
+                        "default": 1
+                    },
+                    {
+                        "name": "tarea",
+                        "in": "body",
+                        "description": "Ingrese la informacion Correspondiente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TareaC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Tareas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Accion se realizó Correctamente.",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/TareaC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun erroren la accion."
+                    }
+                }
+            }
+        },
+        "/api/objetivo/update/{id}": {
+            "put": {
+                "summary": "Modifica los datos de un Objetivo",
+                "description": "<p>Servicio que modifica los datos del Objetivo</p><p>&nbsp;</p><p><em><strong>¿Cuál es el objetivo?</strong></em></p>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id del objetivo",
+                        "required": true,
+                        "default": 1
+                    },
+                    {
+                        "name": "Objetivo",
+                        "in": "body",
+                        "description": "Ingrese la informacion Correspondiente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ObjetivoC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Objetivos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Accion se realizó Correctamente.",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ObjetivoC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun erroren la accion."
+                    }
+                }
+            }
+        },
+        "/api/clases/update/{id}": {
+            "put": {
+                "summary": "Modifica los datos de una Clase",
+                "description": "<p>Servicio que modifica los datos dela clase</p><p>&nbsp;</p><p><em><strong>¿Cuál es la clase?</strong></em></p>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id de la Clase",
+                        "required": true,
+                        "default": 1
+                    },
+                    {
+                        "name": "Clase",
+                        "in": "body",
+                        "description": "Ingrese la informacion Correspondiente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClasesC"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Clases"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Accion se realizó Correctamente.",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClasesC"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun erroren la accion."
+                    }
+                }
+            }
+        },
+        "/api/dia/update/{id}": {
+            "put": {
+                "summary": "Modifica los datos de una relacion entre clase y dia",
+                "description": "<p>Servicio que modifica los datos de la clase y el dia</p><p>&nbsp;</p><p><em><strong>¿Cuál es la relacion?</strong></em></p>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id de la relacion",
+                        "required": true,
+                        "default": 1
+                    },
+                    {
+                        "name": "Clase",
+                        "in": "body",
+                        "description": "Ingrese la informacion Correspondiente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ClasesDia"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Relacion Clase-Dia"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Accion se realizó Correctamente.",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/ClasesDia"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun erroren la accion."
+                    }
+                }
+            }
+        },
+        "/api/notes/update/{id}": {
+            "put": {
+                "summary": "Modifica los datos de las notas",
+                "description": "<p>Servicio que modifica la notas para cada usuario</p><p>&nbsp;</p><p><em><strong>¿Cuáles son los datos?</strong></em></p>",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id de la relacion",
+                        "required": true,
+                        "default": 1
+                    },
+                    {
+                        "name": "Notas",
+                        "in": "body",
+                        "description": "Ingrese la informacion Correspondiente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/notes"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Notas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La Accion se realizó Correctamente.",
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "fieldCount": 0,
+                                    "affectedRows": 1,
+                                    "insertId": 4,
+                                    "serverStatus": 2,
+                                    "warningCount": 0,
+                                    "message": "",
+                                    "protocol41": true,
+                                    "changedRows": 0
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/notes"
+                        }
+                    },
+                    "403": {
+                        "description": "Hubo algun erroren la accion."
+                    }
+                }
+            }
+        },
+        "/api/cliente/delete/{id}": {
+            "delete": {
+                "summary": "Borra datos del cliente",
+                "description": "<p>servicio que borra al cliente y sus datos</p><p>&nbsp;</p><p><em><strong>¿Cuál es ese cliente?</strong></em></p>",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id correspondiente",
+                        "required": true,
+                        "default": 1
+                    }
+                ],
+                "tags": ["Cliente"],
+                "responses": {
+                    "200": {
+                        "description": "servicio realizado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/objetivo/delete": {
+            "post": {
+                "summary": "Borra los objetivos del cliente",
+                "description": "<p>servicio que borra los objetivos</p><p>&nbsp;</p><p><em><strong>¿Cuál es ese objetivo?</strong></em></p>",
+                "consumes": ["application/json"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos del  Objetivo",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/deleteObj"
+                        }
+                    }
+                ],
+                "tags": ["Objetivos"],
+                "responses": {
+                    "200": {
+                        "description": "servicio realizado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/tarea/delete": {
+            "post": {
+                "summary": "Borra las tareas del cliente",
+                "description": "<p>servicio que borra las tareas</p><p>&nbsp;</p><p><em><strong>¿Cuál es esa tarea?</strong></em></p>",
+                "consumes": ["application/json"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Datos de La Tabla",
+                        "in": "body",
+                        "description": "Ingrese los datos de la tarea",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/deleteTar"
+                        }
+                    }
+                ],
+                "tags": ["Tareas"],
+                "responses": {
+                    "200": {
+                        "description": "servicio realizado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/clases/delete/{id}": {
+            "delete": {
+                "summary": "Borra las tareas del cliente",
+                "description": "<p>servicio que borra las clases</p><p>&nbsp;</p><p><em><strong>¿Cuál es esa clase?</strong></em></p>",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id correspondiente",
+                        "required": true,
+                        "default": 1
+                    }
+                ],
+                "tags": ["Clases"],
+                "responses": {
+                    "200": {
+                        "description": "servicio realizado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/dia/delete/{id}": {
+            "delete": {
+                "summary": "Borra La relacion Existente",
+                "description": "<p>servicio que borra la relacion entre clase y el dia/p><p>&nbsp;</p><p><em><strong>¿Cuál es esa relación?</strong></em></p>",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ingrese el id correspondiente",
+                        "required": true,
+                        "default": 1
+                    }
+                ],
+                "tags": ["Relacion Clase-Dia"],
+                "responses": {
+                    "200": {
+                        "description": "servicio realizado correctamente"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "notes": {
+            "type": "object",
+            "properties": {
+                "id_cliente": {
+                    "type": "int",
+                    "description": "identificador unico del cliente"
+                },
+                "nota": {
+                    "type": "text",
+                    "description": "Espacio donde se escribiran las notas"
+                }
+            }
+        },
+        "deleteTar": {
+            "type": "object",
+            "properties": {
+                "id_tarea": {
+                    "type": "int",
+                    "description": "identificador unico"
+                }
+            }
+        },
+        "deleteObj": {
+            "type": "object",
+            "properties": {
+                "id_objetivo": {
+                    "type": "int",
+                    "description": "identificador unico"
+                }
+            }
+        },
+        "ClienteName": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre del cliente"
+                }
+            }
+        },
+        "Cliente": {
+            "type": "object",
+            "properties": {
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único de un cliente"
+                },
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre del cliente"
+                },
+                "Pasword": {
+                    "type": "text",
+                    "description": "Es la contraseña del cliente"
+                },
+                "word": {
+                    "type": "text",
+                    "description": "Es la palabra de recuperacion"
+                }
+            }
+        },
+        "ClienteRecover": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre del cliente"
+                },
+                "word": {
+                    "type": "text",
+                    "description": "Es la palabra de recuperacion"
+                }
+            }
+        },
+        "ClienteC": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre del cliente"
+                },
+                "Pasword": {
+                    "type": "text",
+                    "description": "Es la contraseña del cliente"
+                },
+                "word": {
+                    "type": "text",
+                    "description": "Es la palabra de recuperacion"
+                }
+            }
+        },
+        "ClienteLogin": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre del cliente"
+                },
+                "pasword": {
+                    "type": "text",
+                    "description": "Es la contraseña del cliente"
+                }
+            }
+        },
+        "Objetivo": {
+            "type": "object",
+            "properties": {
+                "id_objetivo": {
+                    "type": "int",
+                    "description": "Identificador único de objetivo"
+                },
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único de un cliente"
+                },
+                "nombre": {
+                    "type": "text",
+                    "description": "nombre del objetivo"
+                },
+                "fecha_fin": {
+                    "type": "date",
+                    "description": "Fecha de Vencimiento del objetivo"
+                },
+                "prioridad": {
+                    "type": "int",
+                    "description": "Es el grado de prioridad del Objetivo"
+                },
+                "progreso": {
+                    "type": "int",
+                    "description": "Es el progreso del objetivo"
+                }
+            }
+        },
+        "ObjetivoC": {
+            "type": "object",
+            "properties": {
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único de un cliente"
+                },
+                "nombre": {
+                    "type": "text",
+                    "description": "nombre del objetivo"
+                },
+                "fecha_fin": {
+                    "type": "date",
+                    "description": "Fecha de Vencimiento del objetivo"
+                },
+                "prioridad": {
+                    "type": "int",
+                    "description": "Es el grado de prioridad del Objetivo.."
+                },
+                "progreso": {
+                    "type": "int",
+                    "description": "Es el progreso del objetivo."
+                }
+            }
+        },
+        "Tarea": {
+            "type": "object",
+            "properties": {
+                "id_tarea": {
+                    "type": "int",
+                    "description": "Identificador único de una tarea."
+                },
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único del Cliente."
+                },
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre de la tarea"
+                },
+                "descripcion": {
+                    "type": "text",
+                    "description": "describe brevemente la tarea a realizar"
+                },
+                "fecha_fin": {
+                    "type": "text",
+                    "description": " fecha limite de la tarea"
+                }
+            }
+        },
+        "TareaC": {
+            "type": "object",
+            "properties": {
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único del Cliente."
+                },
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre de la tarea"
+                },
+                "descripcion": {
+                    "type": "text",
+                    "description": "describe brevemente la tarea a realizar"
+                },
+                "fecha_fin": {
+                    "type": "text",
+                    "description": " fecha limite de la tarea"
+                }
+            }
+        },
+        "Clases": {
+            "type": "object",
+            "properties": {
+                "id_clase": {
+                    "type": "int",
+                    "description": "Identificador único de la clase."
+                },
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre de la clase"
+                },
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único de la clase."
+                }
+            }
+        },
+        "ClasesC": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre de la clase"
+                },
+                "id_cliente": {
+                    "type": "int",
+                    "description": "Identificador único de la clase."
+                }
+            }
+        },
+        "ClasesDia": {
+            "type": "object",
+            "properties": {
+                "id_clase": {
+                    "type": "int",
+                    "description": "Identificador único de la clase."
+                },
+                "id_Dia": {
+                    "type": "int",
+                    "description": "Identificador único de l Dia."
+                }
+            }
+        },
+        "listOneId": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "int",
+                    "description": "Identificador único del cliente."
+                }
+            }
+        },
+        "listClient": {
+            "type": "object",
+            "properties": {
+                "idCliente": {
+                    "type": "int",
+                    "description": "Identificador único del cliente."
+                }
+            }
+        },
+        "listOneClient": {
+            "type": "object",
+            "properties": {
+                "idCliente": {
+                    "type": "int",
+                    "description": "Identificador único del cliente."
+                },
+                "idTarea": {
+                    "type": "int",
+                    "description": "Identificador único de la tarea."
+                }
+            }
+        },
+        "listOneObj": {
+            "type": "object",
+            "properties": {
+                "idObjetivo": {
+                    "type": "int",
+                    "description": "Identificador único del objetivo."
+                }
+            }
+        },
+        "look": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "text",
+                    "description": "Nombre de la clase."
+                }
+            }
+        }
+    }
+}

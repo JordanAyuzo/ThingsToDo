@@ -1,0 +1,95 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+.bodyLogin
+{
+background: rgb(0,36,27);
+background: linear-gradient(90deg, rgba(0,36,27,1) 0%, rgba(9,121,84,0.7847514005602241) 0%, rgba(38,40,106,1) 100%);
+height: 100vh;/* 100 por ciento del alto del dispositivo*/
+width: 100vw;/* 100 por ciento del alto del dispositivo*/
+
+}
+.rectangle {
+    border-radius:6px;
+    width: 400px;
+    height: 580px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px; 
+    box-shadow: 0px 0px 20px 0px #ccc;
+    padding: 20px;
+    transition: all 0.5s ease;
+}
+.icono {
+    font-size: 7em; /* para aumentar el tamaño */
+    position: absolute; /* para colocar el icono en una posición específica */
+    top: 15%; /* para colocar el icono en la mitad de la pantalla */
+    left: 50%; /* para colocar el icono en el centro horizontal de la pantalla */
+    transform: translate(-50%, -50%); /* para centrar el icono dentro del contenedor */
+    /*box-shadow: 0px 0px 20px 0px red; NOTA investigas como solo darle sombreado al circulo
+            y no al cuadrado*/
+  }
+  i.material-icons {
+    color: #2979ff;
+ }
+ i.arrow{
+    color:#ccc;
+    font-weight: bold;
+
+ }
+ .title {
+    font-size: 7em; /* para aumentar el tamaño */
+    position: absolute; /* para colocar el icono en una posición específica */
+    top: 30%; /* para colocar el icono en la mitad de la pantalla */
+    left: 50%; /* para colocar el icono en el centro horizontal de la pantalla */
+    transform: translate(-50%, -50%); /* para centrar el icono dentro del contenedor */
+    /*box-shadow: 0px 0px 20px 0px red; NOTA investigas como solo darle sombreado al circulo
+            y no al cuadrado*/
+  }
+  .formular {
+    /*font-size: 7em; /* para aumentar el tamaño */
+    position: absolute; /* para colocar el icono en una posición específica */
+    top: 60%; /* para colocar el icono en la mitad de la pantalla */
+    left: 50%; /* para colocar el icono en el centro horizontal de la pantalla */
+    transform: translate(-50%, -50%); /* para centrar el icono dentro del contenedor */
+    /*box-shadow: 0px 0px 20px 0px red; NOTA investigas como solo darle sombreado al circulo
+            y no al cuadrado*/
+  }
+  .input{
+    font-weight: bold;
+}
+  input::placeholder {
+    color: #515151;
+    font-weight: bold;
+}
+.actions{
+    margin-top: 10px;
+    position: absolute; /* para colocar el icono en una posición específica */
+    top: 120%; /* para colocar el icono en la mitad de la pantalla */
+    left: 50%; /* para colocar el icono en el centro horizontal de la pantalla */
+    transform: translate(-50%, -50%); /* para centrar el icono dentro del contenedor */
+    /*box-shadow: 0px 0px 20px 0px red; NOTA investigas como solo darle sombreado al circulo
+            y no al cuadrado*/
+}
+.btna{
+    position: absolute; /* para colocar el icono en una posición específica */
+    top: 50%; /* para colocar el icono en la mitad de la pantalla */
+    left: 15%; /* para colocar el icono en el centro horizontal de la pantalla */
+    transform: translate(-50%, -50%); /* para centrar el icono dentro del contenedor */
+    /*box-shadow: 0px 0px 20px 0px red; NOTA investigas como solo darle sombreado al circulo
+            y no al cuadrado*/
+}
+.btn2{
+    margin-right: 10px;
+    margin-left: 70px;
+}
+.olv{
+    width: 175px;
+    position: absolute; /* para colocar el icono en una posición específica */
+    top: 170%; /* para colocar el icono en la mitad de la pantalla */
+    left: 55%; /* para colocar el icono en el centro horizontal de la pantalla */
+    transform: translate(-50%, -50%); /* para centrar el icono dentro del contenedor */
+    /*box-shadow: 0px 0px 20px 0px red; NOTA investigas como solo darle sombreado al circulo
+            y no al cuadrado*/
+}

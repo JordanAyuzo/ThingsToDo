@@ -1,0 +1,27 @@
+
+<div class="bodyRecovery">
+        <div class="container">
+            <div class="rectangle">
+                <div class="title">
+                    <h2 class="center-align blue-text text-darken-2 nuevo">¡Reestablecer Contraseña!</h2>
+                </div>
+                <div class="formular">
+                    <div class="cuestion1">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input [(ngModel)]="usuario1.password" class="key" type="password" name="password" id="password"
+                            placeholder="Escribe la nueva contraseña" autocomplete="off">
+                    </div>
+                    <div class="cuestion2">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input [(ngModel)]="usuario2.password" class="key" type="password" name="password" id="password"
+                            placeholder="Confirma la nueva contraseña" autocomplete="off">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn-floating btn-large waves-effect waves-light green"(click)="Reestablecer()">
+                        <i class="material-icons">cached</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>

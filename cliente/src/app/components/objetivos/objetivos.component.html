@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<div class="bodyObjetivos">
+  <div class="container">
+    <div class="centro">
+      <div class="container row col s12 ">
+        <div class="ingresar col s10">
+          <input [(ngModel)]="objMain.nombre" class="task" type="text" name="objetivo" id="tarea"
+            placeholder="Ingresa Tus Objetivos Aqui." autocomplete="off">
+        </div>
+        <div class="btn1 col s1 push l2">
+          <button class="btn-floating btn-large waves-effect waves-light green right" (click)="addObjetivo()">
+            <i class="material-icons prefix">add</i>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="array">
+        <div class="task">
+          <table id="tabla1">
+            <tr class="separacion" *ngFor="let elemento of lista">
+              <td>{{elemento.nombre}}</td>
+              <td><a (click)="borrar(elemento.id_objetivo)"><i class="material-icons prefix">delete</i></a>
+                <a (click)="opemModelView(elemento.id_objetivo)"><i class="material-icons prefix">remove_red_eye</i></a>
+                <a (click)="opemModelEdit(elemento.id_objetivo)"><i class="material-icons prefix">edit</i></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <button style="background-color: transparent; border: none;" (click)="exportAsXLSX()">
+        <img src="https://logodownload.org/wp-content/uploads/2020/04/excel-logo-0.png" style="width: 45px; height: 70px;">
+      </button> 
+    </div>
+  
+  </div>
+</div>
+
+
+
+<div id="modal4" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Modificar Tarea.</h4>
+    <p>
+    </p>
+    <div class="input-field">
+      <input [(ngModel)]="objMod.nombre" type="text"><label for="">Nombre De La Tarea</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="objMod.fecha_fin" type="text"><label for="">Fecha Limite</label>
+    </div>
+
+    <div class="input-field">
+      <input [(ngModel)]="objMod.prioridad" type="text"><label for="">Prioridad</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="objMod.progreso" type="text"><label for="">Progreso</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    <a (click)="actualizarObjetivo()" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+  </div>
+</div>
+
+<div id="modal5" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Mas Detalles de la tarea.</h4>
+    <p>
+    </p>
+    <h6>Tarea: {{objMod.nombre}} </h6>
+    <h6>Prrioridad: {{objMod.prioridad}} </h6>
+    <h6>Progreso: {{objMod.progreso}} </h6>
+    <h6>Fecha Limite: {{objMod.fecha_fin}} </h6>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn green">Cerrar</a>
+  </div>
+</div>

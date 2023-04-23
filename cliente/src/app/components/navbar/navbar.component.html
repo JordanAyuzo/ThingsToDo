@@ -1,0 +1,224 @@
+<div class="navegation">
+
+  <ul id="menuTareas" class="dropdown-content">
+    <li class="divider"></li>
+    <li><a (click)="modalTareas(1)">Crear</a></li>
+    <li class="divider"></li>
+  </ul>
+
+  <ul id="menuObjetivos" class="dropdown-content">
+    <li class="divider"></li>
+    <li><a (click)="modalObjetivos(1)">Crear</a></li>
+    <li class="divider"></li>
+  </ul>
+  <ul id="menuClases" class="dropdown-content">
+    <li class="divider"></li>
+    <li><a (click)="modalClases(1)">Clase nueva</a></li>
+    <li class="divider"></li>
+    <li><a (click)="modalClases(2)">Ver itinerario de clases</a></li>
+    <li class="divider"></li> 
+    <li><a (click)="modalClases(3)">Ver clases</a></li>
+    <li class="divider"></li> 
+    <li><a (click)="modalClases(4)">Agregar dia a clase</a></li>
+  </ul>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Thing To Do</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down center ">
+
+
+        <li><a  (click)="openCalendar()" class="material-icons prefix large bigIcon datepicker">calendar_today</a></li>
+        <li class="tab"><a (click)  ="goTareas()" class="dropdown-trigger" data-target="menuTareas">Tareas</a></li>
+        <li class="tab"><a (click)="goObjetivos()" class="dropdown-trigger" data-target="menuObjetivos">Objetivos</a></li>
+        <li class="tab"><a class="dropdown-trigger" data-target="menuClases">Clases</a></li>
+        <li class="tab"><a (click)="goNotes()">Notas</a></li>
+        <li><a (click)= "goMenu()" class="material-icons prefix large bigIcon">home</a></li>  
+        <li><a (click)="goLogin()" class="material-icons prefix large bigIcon">exit_to_app</a></li>
+        <li>
+          <a class="myProfileButton" (click)="openEditUsuario()">
+            <div class="myProfileContainer">
+              <img class="myProfile" [src]="dameNombre(1)" (error)="onImgError($event)">
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
+<div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Modificar Usuario.</h4>
+    <p>
+    </p>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+      <img [src]= "dameNombre(1)" (error)="onImgError($event)" style="max-width: 100%; max-height: 200px;">
+    </div>
+    <div>
+      <input type="file" (change)="cargandoImagen($event.target,'perfil')" multiple>
+  </div>
+    <div class="input-field">
+      <input [(ngModel)]="clienteA.correo" type="text"><label for="">Nombre</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="clienteA.password" type="password"><label for="">Contraseña</label>
+    </div>
+
+    <div class="input-field">
+      <input [(ngModel)]="clienteA.word" type="text"><label for="">Clave de Recuperación</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="cancelar()" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    <a (click)="actualizarCliente()" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+  </div>
+</div>
+
+<div id="editTareaM" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Crear Tarea.</h4>
+    <p>
+    </p>
+    <div class="input-field">
+      <input [(ngModel)]="tareaCrear.nombre" type="text"><label for="">Nombre De La Tarea</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="tareaCrear.descripcion" type="text"><label for="">descripcion</label>
+    </div>
+
+    <div class="input-field">
+      <input [(ngModel)]="tareaCrear.fechafin" type="text"><label for="">Fecha de Entrega</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="cancelar()" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    <a (click)="accionesTareas(1)" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+  </div>
+</div>
+
+<div id="editObjetivoM" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Crear Objetivo.</h4>
+    <p>
+    </p>
+    <div class="input-field">
+      <input [(ngModel)]="objetivoCrear.nombre" type="text"><label for="">Nombre Del Objetivo</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="objetivoCrear.fecha_fin" type="text"><label for="">Fecha Limite</label>
+    </div>
+
+    <div class="input-field">
+      <input [(ngModel)]="objetivoCrear.prioridad" type="text"><label for="">Prioridad</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="objetivoCrear.progreso" type="text"><label for="">Progreso</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    <a (click)="accionesObjetivos(1)" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+  </div>
+</div>
+
+<div id="editClasesM" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Crear Clase</h4>
+    <p>
+    </p>
+    <div class="input-field">
+      <input [(ngModel)]="clasesCrear.nombre" type="text"><label for="">Nombre De La Clase</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    <a (click)="accionesClases(1)" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+  </div>
+</div>
+
+
+<div id="editDiaM" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Asignar dias </h4>
+    <p>
+    </p>
+    <div class="input-field">
+      <input [(ngModel)]="clasDia.clase" type="text"><label for="">Nombre De La Clase</label>
+    </div>
+    <div class="input-field">
+      <input [(ngModel)]="clasDia.dia" type="text"><label for="">Dia</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    <a (click)="accionesClases(2)" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+  </div>
+</div>
+
+
+<div id="verClasesM" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Itinerario de Clases</h4> 
+
+    <table>
+      <thead>
+        <tr>
+          <th>Clase</th>
+          <th>Dia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let oneClase of listClases">
+          <td>{{oneClase.nombre_clase}}</td>
+          <td>{{oneClase.nombre_dia}}</td>
+          <td>
+            <a ><i  (click)="eliminarRelacion(oneClase.id_relacion)" class="material-icons prefix">delete</i></a>
+            <a ><i class="material-icons prefix">edit</i></a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+  </div>
+  <div class="modal-footer">
+    <a (click)="accionesClases(1)" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+
+  </div>
+</div>
+
+<div id="viewClass" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Tus Clases</h4> 
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre de la clase.</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let oneClass of listClases2">
+          <td>{{oneClass.nombre}}</td>
+          <td>
+            <a (click)="eliminarClass(oneClass.id_clase)" ><i class="material-icons prefix">delete</i></a>
+            <a ><i class="material-icons prefix">edit</i></a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+  </div>
+  <div class="modal-footer">
+    <a (click)="accionesClases(1)" class=" modal-close waves-effect waves-green btn">Aceptar</a>
+
+  </div>
+</div>

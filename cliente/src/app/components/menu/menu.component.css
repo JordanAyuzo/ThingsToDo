@@ -1,0 +1,48 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+.bodyMenu
+{
+background: rgb(82,39,0);
+background: rgb(0,36,27);
+background: linear-gradient(90deg, rgba(0,36,27,1) 0%, rgba(9,121,84,0.7847514005602241) 0%, rgba(38,40,106,1) 100%);
+height: 100vh;/* 100 por ciento del alto del dispositivo*/
+width: 100vw;/* 100 por ciento del alto del dispositivo*/
+}
+
+img {
+  
+  width: 300px;
+  height: 300px;
+}
+.digital-clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .digital-clock {
+    color: #333;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .time {
+    font-size: 4rem;
+  }
+  
+  .date {
+    font-size: 2rem;
+    font-weight: normal;
+  }
+  .description {
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+.iconito {
+  font-size: 10rem; /* Tamaño deseado */
+  color: #333;
+  text-align: center;
+}
