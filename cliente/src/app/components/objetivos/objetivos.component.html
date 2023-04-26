@@ -1,24 +1,28 @@
-<app-navbar></app-navbar>
+
 <div class="bodyObjetivos">
+  <app-navbar></app-navbar>
   <div class="container">
     <div class="centro">
       <div class="container row col s12 ">
-        <div class="ingresar col s10">
+        <div class="ingresar col s9">
           <input [(ngModel)]="objMain.nombre" class="task" type="text" name="objetivo" id="tarea"
             placeholder="Ingresa Tus Objetivos Aqui." autocomplete="off">
         </div>
-        <div class="btn1 col s1 push l2">
-          <button class="btn-floating btn-large waves-effect waves-light green right" (click)="addObjetivo()">
-            <i class="material-icons prefix">add</i>
+        <div class="btn1 col s3">
+          <button class="btn-floating btn-large waves-effect waves-light green" (click)="addObjetivo()">
+            <i class="material-icons prefix pull">add</i>
           </button>
-
+          
         </div>
       </div>
-
       <div class="array">
         <div class="task">
           <table id="tabla1">
-            <tr class="separacion" *ngFor="let elemento of lista">
+            <tr class="separacion" *ngFor="let elemento of lista |
+            paginate: {
+              itemsPerPage: pageSize,
+              currentPage: p
+              };let i=index">
               <td>{{elemento.nombre}}</td>
               <td><a (click)="borrar(elemento.id_objetivo)"><i class="material-icons prefix">delete</i></a>
                 <a (click)="opemModelView(elemento.id_objetivo)"><i class="material-icons prefix">remove_red_eye</i></a>
@@ -27,12 +31,22 @@
             </tr>
           </table>
         </div>
+        <div class="row center-align">
+          <pagination-controls class="my-pagination" (pageChange)="p = ($event)"
+          previousLabel="Anterior" nextLabel="Siguiente">
+          </pagination-controls>
+          </div>
       </div>
-      <button style="background-color: transparent; border: none;" (click)="exportAsXLSX()">
-        <img src="https://logodownload.org/wp-content/uploads/2020/04/excel-logo-0.png" style="width: 45px; height: 70px;">
-      </button> 
     </div>
-  
+    <div >
+      <button style="background-color: transparent; border: none;" (click)="exportAsXLSX()">
+        <img [src]= "dameNombre(0)" style="max-width: 100%; max-height: 200px;">
+      </button>
+      <input (change)="cargarExcel($event)" type="file">
+      <button style="background-color: transparent; border: none;" (click)="migrar()" >
+        <img [src]= "dameNombre(1)" style="max-width: 100%; max-height: 200px;">
+      </button>
+    </div>
   </div>
 </div>
 

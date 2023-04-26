@@ -15,6 +15,7 @@ import { DelUsuarioComponent } from './components/del-usuario/del-usuario.compon
 import { ModUsuarioComponent } from './components/mod-usuario/mod-usuario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

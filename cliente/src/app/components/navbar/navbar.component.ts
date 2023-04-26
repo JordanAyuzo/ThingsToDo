@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
   liga: string = environment.API_URI_IMAGENES;
   imgPrincipal: any;
   fileToUpload : any;
-
+  enTareas: boolean;
   ngAfterViewInit() {
     const elems = document.querySelectorAll('.datepicker');
     M.Datepicker.init(elems, {});
@@ -65,6 +65,7 @@ export class NavbarComponent implements OnInit {
     private diasService: DiasService,
     private comunacionesService: ComunicacionService,
   ) {
+    this.enTareas = this.router.url.includes('/tareas');
     this.id = localStorage.getItem("idUsuario")
     this.tareaService.list(this.id).subscribe((resTarea: any) => {
       this.listaTarea = resTarea
@@ -78,8 +79,9 @@ export class NavbarComponent implements OnInit {
     var instances = M.Tabs.init(elems, {});
     M.Dropdown.init(document.querySelectorAll('.sidenav'), {});
     $(document).ready(function () {
+      console.log();
+      
       $(".modal").modal();
-
     })
   }
   openEditUsuario() {
@@ -112,7 +114,7 @@ export class NavbarComponent implements OnInit {
     this.clienteA = this.clienteC
   }
   goTareas() {
-    this.router.navigate(['tareas'])
+    this.router.navigate(['/tareas']);
   }
   goObjetivos() {
     this.router.navigate(['objetivos'])
@@ -161,7 +163,6 @@ export class NavbarComponent implements OnInit {
     if (option == 2) {
       this.diasService.list().subscribe((resDia: any) => {
         this.listClases = resDia;
-        console.log(this.listClases);
         $('#verClasesM').modal();
         $('#verClasesM').modal("open");
       }
@@ -171,7 +172,6 @@ export class NavbarComponent implements OnInit {
     if (option == 3) {
       this.clasesService.list().subscribe((resClase: any) => {
         this.listClases2 = resClase;
-        console.log(this.listClases2);
         $('#viewClass').modal();
         $('#viewClass').modal("open");
       }
@@ -209,8 +209,6 @@ export class NavbarComponent implements OnInit {
     if (option == 2) {
       this.clasesService.look(this.clasDia).subscribe((resclase: any) => {
         this.diasService.look(this.clasDia).subscribe((resDia: any) => {
-          console.log(resclase);
-          console.log(resDia);
           this.diasService.create(resclase[0].id_clase, resDia[0].id_dia).subscribe((rescrear: any) => {
           }
           );
@@ -229,7 +227,6 @@ export class NavbarComponent implements OnInit {
   }
   eliminarClass(id_clase:any){    
     this.clasesService.delete(id_clase).subscribe((resdelete: any) => {
-      console.log(resdelete);
       $('#viewClass').modal();
       $('#viewClass').modal("close");
       
@@ -237,13 +234,10 @@ export class NavbarComponent implements OnInit {
     );
   }
   cargandoImagen(files:any,carpeta:any){
-    console.log(files.files[0]);
     this.imgPrincipal=null;
     this.fileToUpload = files.files[0];
     let imgPromise = this.getFileBlob(this.fileToUpload);
     imgPromise.then(blob => {
-      console.log(blob);
-      
     this.imagenesService.guardarImagen(this.id, blob,carpeta).subscribe(
     (res: any) =>
     {

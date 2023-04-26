@@ -10,6 +10,7 @@ import { TareasComponent } from './components/tareas/tareas.component';
 import { DelUsuarioComponent } from './components/del-usuario/del-usuario.component';
 import { ModUsuarioComponent } from './components/mod-usuario/mod-usuario.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+
 const routes: Routes = [{
   path: "",
   redirectTo: "/login",

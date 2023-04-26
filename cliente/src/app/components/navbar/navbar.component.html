@@ -26,11 +26,13 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Thing To Do</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down center ">
-
-
-        <li><a  (click)="openCalendar()" class="material-icons prefix large bigIcon datepicker">calendar_today</a></li>
-        <li class="tab"><a (click)  ="goTareas()" class="dropdown-trigger" data-target="menuTareas">Tareas</a></li>
-        <li class="tab"><a (click)="goObjetivos()" class="dropdown-trigger" data-target="menuObjetivos">Objetivos</a></li>
+       
+        <li><a   class="material-icons prefix large bigIcon datepicker">calendar_today</a></li>
+        <li class="tab">
+          <a (click)="goTareas()" *ngIf="!enTareas">Tareas</a>
+          <a class="dropdown-trigger" data-target="menuTareas" *ngIf="enTareas">Tareas</a>
+        </li>
+        <li class="tab"><a (click)="goObjetivos()" >Objetivos</a></li>
         <li class="tab"><a class="dropdown-trigger" data-target="menuClases">Clases</a></li>
         <li class="tab"><a (click)="goNotes()">Notas</a></li>
         <li><a (click)= "goMenu()" class="material-icons prefix large bigIcon">home</a></li>  
